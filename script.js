@@ -1,3 +1,6 @@
+// =====================
+// LOGO CLICK
+// =====================
 const logo = document.querySelector('.logo');
 
 if (logo) {
@@ -5,25 +8,38 @@ if (logo) {
     alert('Welcome to InkStain 🔥');
   });
 }
+
+
+// =====================
+// SMOOTH SCROLL NAV
+// =====================
 document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', function(e) {
+  link.addEventListener('click', function (e) {
     e.preventDefault();
 
     const targetId = this.getAttribute('href');
     const target = document.querySelector(targetId);
 
-    target.scrollIntoView({
-      behavior: 'smooth'
-    });
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   });
 });
-const images = document.querySelectorAll('.image-box');
 
-images.forEach((img, index) => {
+
+// =====================
+// GALLERY CLICK EFFECT
+// =====================
+document.querySelectorAll('.image-box img').forEach((img, index) => {
   img.addEventListener('click', () => {
     alert(`Opening artwork ${index + 1}`);
   });
 });
+
+
+// =====================
+// SCROLL REVEAL
+// =====================
 const sections = document.querySelectorAll('section');
 
 window.addEventListener('scroll', () => {
@@ -38,20 +54,12 @@ window.addEventListener('scroll', () => {
     }
   });
 });
-document.querySelectorAll('.image-box').forEach(box => {
-  box.addEventListener('click', () => {
-    box.style.transform = 'scale(1.2)';
-    
-    setTimeout(() => {
-      box.style.transform = 'scale(1)';
-    }, 300);
-  });
-});
-const target = document.querySelector(this.getAttribute('href'));
-    target.scrollIntoView({
-      behavior: 'smooth'
-    });
-    const navLinks = document.querySelectorAll('nav a');
+
+
+// =====================
+// ACTIVE NAV LINK
+// =====================
+const navLinks = document.querySelectorAll('nav a');
 
 window.addEventListener('scroll', () => {
   let current = '';
@@ -72,13 +80,25 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+
+// =====================
+// CONTACT FORM
+// =====================
 const form = document.querySelector('.contact-form');
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  alert('Thank you! Your tattoo request has been sent.');
-  form.reset();
-});
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you! Your tattoo request has been sent.');
+    form.reset();
+  });
+}
+
+
+// =====================
+// LIGHTBOX
+// =====================
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.querySelector('.lightbox-img');
 const closeBtn = document.querySelector('.close-btn');
@@ -93,4 +113,3 @@ document.querySelectorAll('.image-box img').forEach(img => {
 closeBtn.addEventListener('click', () => {
   lightbox.style.display = 'none';
 });
-
