@@ -27,6 +27,15 @@ h2 {
   border-bottom: 1px solid #d4af37;
   padding-bottom: 10px;
 }
+/* =========================
+   SCROLLED HEADER
+========================= */
+
+header.scrolled {
+  padding: 12px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
 
 /* =========================
    HEADER / NAV
@@ -336,4 +345,28 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+/* =========================
+   SCROLL PROGRESS BAR
+========================= */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background-color: #d4af37;
+  z-index: 3000;
+  transition: width 0.1s linear;
+}
+/* =========================
+   FORM MESSAGE
+========================= */
+
+.form-message {
+  margin-top: 15px;
+  color: #d4af37;
+  font-weight: bold;
+  min-height: 24px;
 }
