@@ -90,3 +90,26 @@ document.querySelectorAll('.image-box img').forEach(img => {
 closeBtn.addEventListener('click', () => {
   lightbox.style.display = 'none';
 });
+// =====================
+// COUNTER ANIMATION
+// =====================
+const counters = document.querySelectorAll('.counter');
+
+const animateCounters = () => {
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+
+    const updateCounter = () => {
+      if (count < target) {
+        count += Math.ceil(target / 50);
+        counter.textContent = count > target ? target : count;
+        setTimeout(updateCounter, 30);
+      }
+    };
+
+    updateCounter();
+  });
+};
+
+animateCounters();
