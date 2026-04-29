@@ -1,3 +1,4 @@
+console.log("JS LOADED");
 // =====================
 // LOGO CLICK
 // =====================
@@ -80,15 +81,62 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.querySelector('.lightbox-img');
 const closeBtn = document.querySelector('.close-btn');
 
-document.querySelectorAll('.image-box img').forEach(img => {
+const galleryImages = document.querySelectorAll('.image-box img');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+
+let currentImageIndex = 0;
+
+galleryImages.forEach((img, index) => {
   img.addEventListener('click', () => {
+    currentImageIndex = index;
     lightbox.style.display = 'flex';
     lightboxImg.src = img.src;
   });
 });
+nextBtn.addEventListener('click', () => {
+  currentImageIndex =
+    (currentImageIndex + 1) % galleryImages.length;
+
+  lightboxImg.src =
+    galleryImages[currentImageIndex].src;
+});
+
+prevBtn.addEventListener('click', () => {
+  currentImageIndex =
+    (currentImageIndex - 1 + galleryImages.length) %
+    galleryImages.length;
+
+  lightboxImg.src =
+    galleryImages[currentImageIndex].src;
+});
 
 closeBtn.addEventListener('click', () => {
   lightbox.style.display = 'none';
+});
+document.addEventListener('keydown', (e) => {
+  if (lightbox.style.display !== 'flex') return;
+
+  if (e.key === 'ArrowRight') {
+    currentImageIndex =
+      (currentImageIndex + 1) % galleryImages.length;
+
+    lightboxImg.src =
+      galleryImages[currentImageIndex].src;
+  }
+
+  if (e.key === 'ArrowLeft') {
+    currentImageIndex =
+      (currentImageIndex - 1 + galleryImages.length) %
+      galleryImages.length;
+
+    lightboxImg.src =
+      galleryImages[currentImageIndex].src;
+  }
+
+  if (e.key === 'Escape') {
+    lightbox.style.display = 'none';
+  }
 });
 // =====================
 // COUNTER ANIMATION
@@ -113,3 +161,66 @@ const animateCounters = () => {
 };
 
 animateCounters();
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+  }
+});
+const themeToggle = document.querySelector('.theme-toggle');
+
+if (localStorage.getItem('theme') === 'light') {
+  document.body.classList.add('light-theme');
+}
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light-theme');
+
+  if (document.body.classList.contains('light-theme')) {
+    localStorage.setItem('theme', 'light');
+  } else {
+    localStorage.setItem('theme', 'dark');
+  }
+});
+const heroTitle = document.querySelector('.hero-title');
+const text = 'Where Ink Meets Soul';
+let index = 0;
+
+function typeWriter() {
+  if (index < text.length) {
+    heroTitle.textContent += text.charAt(index);
+    index++;
+    setTimeout(typeWriter, 100);
+  }
+}
+
+typeWriter();
+const hero = document.querySelector('.hero');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
+});
+const filterButtons = document.querySelectorAll('.filter-btn');
+const imageBoxes = document.querySelectorAll('.image-box');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const filter = button.getAttribute('data-filter');
+
+    filterButtons.forEach(btn =>
+      btn.classList.remove('active-filter')
+    );
+
+    button.classList.add('active-filter');
+
+    imageBoxes.forEach(box => {
+      const category = box.getAttribute('data-category');
+
+      if (filter === 'all' || filter === category) {
+        box.style.display = 'block';
+      } else {
+        box.style.display = 'none';
+      }
+    });
+  });
+});
