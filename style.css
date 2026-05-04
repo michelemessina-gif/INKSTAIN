@@ -14,6 +14,9 @@ body {
   background-color: #1e0f0f;
   color: #f4e1c1;
   line-height: 1.6;
+
+  opacity: 0;
+  transition: opacity 0.8s ease;
 }
 
 /* =========================
@@ -81,6 +84,14 @@ nav a:hover {
   color: #d4af37;
   border-bottom: 2px solid #d4af37;
 }
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #d4af37;
+  font-size: 2rem;
+  cursor: pointer;
+}
 
 /* =========================
    HERO SECTION
@@ -120,10 +131,21 @@ section {
   padding: 60px 20px;
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
 
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.6s ease;
+}
+
+section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: rgba(212, 175, 55, 0.2);
 }
 
 /* =========================
@@ -201,14 +223,30 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-
   background: rgba(0,0,0,0.3);
   opacity: 0;
-
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .image-box:hover::after {
+  opacity: 1;
+}
+.image-label {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #d4af37;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.image-box:hover .image-label {
   opacity: 1;
 }
 
@@ -280,6 +318,11 @@ section {
 
 .contact-form button {
   align-self: flex-start;
+}
+.char-counter {
+  font-size: 0.9rem;
+  color: #bca687;
+  text-align: right;
 }
 
 /* =========================
@@ -380,6 +423,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 /* =========================
    SCROLL PROGRESS BAR
 ========================= */
@@ -484,10 +528,63 @@ footer {
 .next-btn {
   right: 30px;
 }
-.image-box::after {
-  pointer-events: none;
+
+
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  padding: 12px 16px;
+  font-size: 1.2rem;
+  background-color: #4a1c1c;
+  color: #f4e1c1;
+  border: 1px solid #a17745;
+  cursor: pointer;
+  z-index: 3000;
+  border-radius: 8px;
+}
+
+.back-to-top:hover {
+  background-color: #a17745;
+  color: #1e0f0f;
+}
+
+
+body.loaded {
+  opacity: 1;
+}
+.card,
+.style-card,
+.stat-box,
+.image-box {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.card.visible,
+.style-card.visible,
+.stat-box.visible,
+.image-box.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+  }
+
+  nav.active {
+    display: block;
+  }
+
   header {
     flex-direction: column;
     gap: 15px;
@@ -521,8 +618,9 @@ footer {
     font-size: 1rem;
   }
 
-  .prev-btn,
-  .next-btn {
-    padding: 8px 12px;
+    .prev-btn,
+    .next-btn {
+      padding: 8px 12px;
+    }
   }
-}
+ 
