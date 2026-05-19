@@ -1,95 +1,88 @@
-InkStain
+# InkStain
 
-A concept-driven tattoo portfolio website focused on dark, abstract, and symbolic tattoo art.
+A dark, concept-driven tattoo portfolio built as a front-end development project.
 
-Built as both a creative project and a front-end development project, InkStain represents my journey into design, structure, user experience, and modern web development.
+InkStain combines tattoo-inspired visual design with responsive web development, interactive UI features, and custom artwork integration.
 
-⸻
+---
 
-Overview
+## Live Features
 
-InkStain explores tattoo design through:
-	•	Blackwork
-	•	Abstract mask concepts
-	•	Illustrative character designs
-	•	Symbolic storytelling
+- Responsive layout
+- Interactive image gallery
+- Lightbox image preview
+- Gallery category filtering
+- Scroll animations
+- Animated counters
+- Smooth scrolling navigation
+- Dark themed aesthetic
+- Mobile navigation menu
+- Theme toggle with local storage
+- Character counter for contact form
+- Scroll progress indicator
+- Back-to-top button
 
-The project combines visual identity with responsive front-end development to create a clean and immersive portfolio experience.
+---
 
-⸻
+## Built With
 
-Features
-	•	Responsive layout for desktop and mobile
-	•	Interactive gallery filtering
-	•	Animated scroll effects
-	•	Lightbox image preview system
-	•	Smooth scrolling navigation
-	•	Scroll progress indicator
-	•	Animated statistic counters
-	•	Theme toggle with local storage
-	•	Typing animation hero section
-	•	Mobile navigation menu
-	•	Back-to-top button
-	•	Form validation with live character counter
+- HTML5
+- CSS3
+- JavaScript (Vanilla JS)
 
-⸻
+---
 
-Technologies Used
-	•	HTML5
-	•	CSS3
-	•	JavaScript (Vanilla JS)
-	•	Git & GitHub
+## Project Purpose
 
-⸻
+This project was created to:
 
-Project Goals
+- Practice front-end development
+- Build a creative portfolio project
+- Combine tattoo art with UI/UX design
+- Improve JavaScript interactivity skills
+- Develop responsive layout techniques
+- Create a recruiter-ready portfolio piece
 
-This project was built to:
-	•	Practice responsive front-end development
-	•	Improve JavaScript DOM manipulation skills
-	•	Explore UI/UX structure and interaction design
-	•	Build a personal creative portfolio
-	•	Learn professional Git workflow and version control
+---
 
-⸻
+## Artwork
 
-Screenshots
+All tattoo concepts and drawings featured in the gallery are original artworks created for the InkStain project.
 
-Coming soon.
+---
 
-⸻
+## Screenshots
 
-Live Demo
+### Hero Section
 
-Coming soon.
+![InkStain Hero](images/screenshot-hero.png)
 
-⸻
+### Gallery Section
 
-Future Improvements
-	•	Replace placeholder images with original artwork
-	•	Add booking functionality
-	•	Improve accessibility
-	•	Add smoother page transitions
-	•	Connect contact form to backend service
-	•	Expand gallery with real tattoo collections
+![InkStain Gallery](images/screenshot-gallery.png)
 
-⸻
+---
 
-What I Learned
+## Future Improvements
 
-Through InkStain, I improved my understanding of:
-	•	Semantic HTML structure
-	•	CSS organization and responsive design
-	•	JavaScript event handling
-	•	DOM manipulation
-	•	UI polish and animations
-	•	Git commits, rebasing, and project workflow
-	•	Debugging and code cleanup
+- Full booking/contact backend
+- Real tattoo portfolio integration
+- Artist profile system
+- CMS integration
+- Custom animations
+- Online booking experience
 
-⸻
+---
 
-Author
+## Author
 
-Michele Messina
+Created by Michele Messina
 
-Built in Malta as part of my journey into software engineering and creative development.
+GitHub:
+https://github.com/michelemessina-gif
+
+---
+
+## License
+
+This project is for educational and portfolio purposes.
